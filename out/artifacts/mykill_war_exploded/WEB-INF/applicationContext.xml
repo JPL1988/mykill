@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+    <!--启用注解-->
+    <mvc:annotation-driven></mvc:annotation-driven>
+    <!--引入druid的配置文件-->
+    <import resource="spring-context-druid.xml"></import>
+    <!--引入redis集群配置-->
+    <import resource="redis_cluster.xml"/>
+    <!--引入单机版redis    -->
+    <import resource="redis-config.xml"/>
+    <!--扫描包-->
+    <context:component-scan base-package="com.service"/>
+    <context:component-scan base-package="com.redis"/>
+    <context:component-scan base-package="com.Process"/>
+
+    <!--1、配置mybits的sqlsession-->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="configLocation" value="WEB-INF/mybits.xml"/>
+        <property name="mapperLocations" value="classpath:com/mapper/*.xml"/>
+    </bean>
+    <!--2、mapperconfig管理sqlsession-->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.mapper.Interface"/>
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
+    </bean>
+
+    <!--1、配置事物管理器-->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+    <!--2、启用事务注解-->
+    <tx:annotation-driven/>
+</beans>

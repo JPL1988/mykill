@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- 加载配置属性文件 -->
+    <context:property-placeholder ignore-unresolvable="true" location="classpath:com/property/jdbc.properties"/>
+
+    <!-- 数据源配置, 使用 Druid 数据库连接池 -->
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
+        <!-- 数据源驱动类可不写，Druid默认会自动根据URL识别DriverClass -->
+        <property name="driverClassName" value="${jdbc.driverClassName}"/>
+
+        <!-- 基本属性 url、user、password -->
+        <property name="url" value="${jdbc.url}"/>
+        <property name="username" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+
+        <!-- 配置初始化大小、最小、最大 -->
+        <property name="initialSize" value="${jdbc.pool.init}"/>
+        <property name="minIdle" value="${jdbc.pool.minIdle}"/>
+        <property name="maxActive" value="${jdbc.pool.maxActive}"/>
+
+        <!-- 配置获取连接等待超时的时间 -->
+        <property name="maxWait" value="${jdbc.pool.maxWait}"/>
+
+        <!-- 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒 -->
+        <property name="timeBetweenEvictionRunsMillis" value="60000"/>
+
+        <!-- 配置一个连接在池中最小生存的时间，单位是毫秒 -->
+        <property name="minEvictableIdleTimeMillis" value="300000"/>
+
+        <!-- 配置防sql注入的拦截的filters -->
+        <!-- 配置监控统计拦截的filters
+        Druid的监控统计功能是通过filter-chain扩展实现，如果你要打开监控统计功能，配置StatFilter，具体看这里
+        -->
+        <property name="proxyFilters">
+            <list>
+                <ref bean="druid_stat_filter"/>
+                <ref bean="druid_wall_filter"/>
+                <ref bean="druid_log_filter"/>
+            </list>
+        </property>
+    </bean>
+
+    <bean class="com.alibaba.druid.filter.stat.StatFilter" id="druid_stat_filter">
+        <!-- 慢sql规则，单位毫秒 -->
+        <property name="slowSqlMillis" value="10000"/>
+        <!-- 记录慢sql到日志 -->
+        <property name="logSlowSql" value="true"/>
+        <!-- 统计时合并相似sql -->
+        <property name="mergeSql" value="true"/>
+    </bean>
+
+    <!-- sql防御 -->
+    <bean class="com.alibaba.druid.wall.WallFilter" id="druid_wall_filter">
+        <!-- 记录违反规则的sql到日志 -->
+        <property name="logViolation" value="true"/>
+    </bean>
+
+    <bean class="com.alibaba.druid.filter.logging.Slf4jLogFilter" id="druid_log_filter">
+        <!-- 记录真正执行的语句，即参数已注入的sql -->
+        <property name="statementExecutableSqlLogEnable" value="true"/>
+        <!-- 其它配置 -->
+        <property name="statementCreateAfterLogEnabled" value="false"/>
+        <property name="statementPrepareAfterLogEnabled" value="false"/>
+        <property name="statementParameterSetLogEnabled" value="false"/>
+        <property name="statementCloseAfterLogEnabled" value="false"/>
+        <property name="resultSetCloseAfterLogEnabled" value="false"/>
+    </bean>
+
+</beans>

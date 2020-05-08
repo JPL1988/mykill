@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>my kill 秒杀专区</title>
+    <link rel="stylesheet" type="text/css" href="../statics/css/kill.css" th:href="@{../statics/css/kill.css}"/>
+</head>
+<body>
+    <div id="main">
+        <div id="head">
+            <label id="killtitle"> 秒 杀 专 区 </label>
+            <label id="timeToStart" timeOfStart="" timeOfEnd="">秒杀倒计时： 0时0分0秒</label>
+        </div>
+        <div id="content" userPhone="" th:killid="${product.killid}" th:date_start="${time.startTime}" th:date_end="${time.endTime}">
+            <div class="left">
+                <img class="image" th:src="'../'+${product.image}"/>
+            </div>
+            <div class="right">
+                <label class="title" th:text="${product.title}"></label>
+                <div class="p_bgc">
+                    <label class="p">价格&nbsp;&nbsp;&nbsp;</label><label class="price" th:text="'￥'+${product.price}"></label><br>
+                    <label class="p">秒杀价</label> <label class="costprice" th:text="'￥'+${product.costPrice}"></label>
+                </div>
+                <div class="stock_count">
+                    <label class="st1">库存：&nbsp;</label><label class="st2" th:text="${product.stockCount}">0</label><label class="st3">&nbsp;件</label>
+                </div>
+                <div>
+                    <label class="loc">配送地址：翻斗大街5号翻斗幼儿园</label>
+                </div>
+                <div>
+                    <label class="count">数量&nbsp;&nbsp;&nbsp;限购一件</label>
+                </div>
+                <div>
+                    <input class="but but_failed" onclick="mykill.killexecute()"  href="#" type="button" value="立 即 抢 购"/>
+                </div>
+                <div class="promise">
+                    <label class="l_promise">承诺&nbsp;&nbsp;一经购买概不退换</label>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+<script src="https://code.jquery.com/jquery-3.5.0.min.js" th:src="@{https://code.jquery.com/jquery-3.5.0.min.js}"></script>
+<script src="https://cdn.staticfile.org/jquery-cookie/1.4.1/jquery.cookie.min.js" th:src="@{https://cdn.staticfile.org/jquery-cookie/1.4.1/jquery.cookie.min.js}"></script>
+<script type="text/javascript" src="../statics/js/kill.js" th:src="@{../statics/js/kill.js}"></script>
+</html>

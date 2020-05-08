@@ -1,0 +1,31 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+a{
+    display: block;
+    width: 200px;
+    margin: 0 auto;
+    font-size: 30px;
+    margin-top: 100px;
+}
+.scroll-plane{
+    background-color: #2e3a47;
+    width: 50%;
+    height: 70px;
+    margin: 10px auto;
+}
+.scroll-wrap{
+    width: 100%;
+    height: 100%;
+}
+.scroll-content{
+    width: 25%;
+    height: 100%;
+    float: left;
+    padding-top: 20px;
+    cursor: pointer;
+}
+p{
+    color: white;
+}

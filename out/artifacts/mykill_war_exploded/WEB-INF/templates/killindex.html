@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" >
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../statics/css/killindex.css" th:href="@{../statics/css/killindex.css}"/>
+    <title>my kill 秒杀专区</title>
+  </head>
+  <body>
+    <div id="head">
+      <label id="killtitle"> 秒 杀 专 区 </label>
+    </div>
+      <div id="main">
+        <div class="mian_box" th:each="item : ${list}">
+          <a target="_blank" th:href="'/mykill/killdetail/'+${item.killid} ">
+            <div class="item">
+              <img class="img" th:src = "'../'+${item.image}">
+              <div class="info">
+                <label class="title" th:text="${item.title}"></label>
+                <label class="tagcount">库存：</label><label class="stock_count" th:text="${item.stockCount}" ></label><br>
+                <label class="tagmoney">￥</label><label class="price" th:text="${item.price}"></label>
+                <div class="pri_but">
+                  <label class="pri_sy">￥</label><label class="cost_price" th:text="${item.costPrice}"></label>
+                  <button class="submitnow">马上抢</button>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+  </body>
+<script type="text/javascript" src="../statics/js/killindex.js" th:src="@{../statics/js/killindex.js}"></script>
+</html>

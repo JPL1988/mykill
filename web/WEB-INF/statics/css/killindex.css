@@ -1,0 +1,118 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: #f5f5f5;
+}
+a{
+    cursor: pointer;
+}
+#main{
+    width: 600px;
+    min-width: 600px;
+    margin: 0 auto;
+}
+.mian_box{
+    list-style-type: none;
+    border: 1px solid gray;
+    width: 600px;
+    min-width: 600px;
+    position: relative;
+    display: block;
+    float: left;
+}
+.item{
+    width: 580px;
+    height: 200px;
+    min-width: 580px;
+    display: block;
+    float: left;
+    background-color: white;
+    margin: 10px;
+}
+.img{
+    float: left;
+    width: 200px;
+    height: 200px;
+    padding-right: 5px;
+}
+#head{
+    font-size: 30px;
+    font-weight: bold;
+    color: red;
+    width: 200px;
+    margin: 0 auto;
+    margin-top: 10px;
+    margin-bottom: 50px;
+}
+.info{
+    float: right;
+    width: 365px;
+    height: 200px;
+}
+label{
+    display: block;
+}
+.title{
+    font-size: 20px;
+    line-height: 21px;
+    font-weight: 500;
+    margin-top: 10px;
+    color: black;
+    margin-bottom: 50px;
+}
+.tagcount{
+    display: inline;
+    color: black;
+    font-size: 17px;
+}
+.stock_count{
+    display: inline;
+    font-size: 17px;
+    color: red;
+    font-weight: bold;
+}
+.tagmoney{
+    text-decoration: line-through;
+    color: gray;
+    display: inline;
+    font-size: 14px;
+    margin-top: 5px;
+}
+.price{
+    display: inline;
+    text-decoration: line-through;
+    color: gray;
+    margin-top: 5px;
+    font-size: 14px;
+}
+.pri_but{
+    width: 100%;
+    height: 50px;
+    margin-top: 5px;
+    float: right;
+}
+.pri_sy{
+    color: red;
+    float: left;
+    margin-top: 11px;
+    font-size: 18px;
+}
+.cost_price{
+    color: red;
+    font-size: 24px;
+    float: left;
+    font-weight: bold;
+    margin-top: 5px;
+}
+.submitnow{
+    background-color: pink;
+    float: right;
+    border: none;
+    width: 100px;
+    font-size: 24px;
+    border-radius: 5px;
+    margin-top: 5px;
+    margin-right: 5px;
+}

@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="spring-data-redis-2.2.4.RELEASE">
+    <CLASSES>
+      <root url="jar://D:/学习/API和jar包，不能删除/常用jar包/spring-data-redis-2.2.4.RELEASE.jar!/" />
+      <root url="jar://D:/学习/API和jar包，不能删除/常用jar包/spring-data-commons-2.2.6.RELEASE.jar!/" />
+      <root url="jar://D:/学习/API和jar包，不能删除/常用jar包/spring-data-keyvalue-1.0.4.RELEASE.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

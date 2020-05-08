@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Spring MVC-5.2.3.RELEASE" type="spring-mvc">
+    <properties version="5.2.3.RELEASE" />
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/spring-webmvc-5.2.3.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-web-5.2.3.RELEASE.jar!/" />
+      <root url="jar://D:/学习/API和jar包，不能删除/常用jar包/slf4j-1.7.25/slf4j-log4j12-1.7.25.jar!/" />
+      <root url="jar://D:/学习/API和jar包，不能删除/常用jar包/slf4j-1.7.25/slf4j-api-1.7.25.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

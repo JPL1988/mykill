@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.mapper.Interface.mykillMapper">
+
+    <select id="findAll" resultType="com.entity.myKill">
+        SELECT * FROM mykill where startTime >= #{starttime}
+        and #{endtime} >= endTime
+    </select>
+
+    <select id="findById" resultType="com.entity.myKill">
+        SELECT * FROM mykill where killid = #{id}
+    </select>
+    <update id="reduceStock">
+        update mykill set stockCount = stockCount-1
+        where killid=#{killid} and stockCount>0 and #{killTime} >= startTime
+        and endTime >= #{killTime}
+    </update>
+
+    <update id="addStock">
+        update mykill set stockCount = stockCount+1
+        where killid=#{killid}
+    </update>
+</mapper>

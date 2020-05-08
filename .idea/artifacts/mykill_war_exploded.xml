@@ -1,0 +1,26 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="mykill:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/mykill_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="mykill/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="mykill" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Spring-5.2.3.RELEASE" />
+          <element id="library" level="project" name="Spring MVC-5.2.3.RELEASE" />
+          <element id="library" level="project" name="slf4j-log4j12-1.7.25" />
+          <element id="library" level="project" name="druid-1.1.9" />
+          <element id="library" level="project" name="thymeleaf-spring5-3.0.5.M3" />
+          <element id="library" level="project" name="jackson-annotations-2.10.3" />
+          <element id="library" level="project" name="jedis-3.1.0" />
+          <element id="library" level="project" name="commons-pool2-2.8.0" />
+          <element id="library" level="project" name="fastjson-1.2.68" />
+          <element id="library" level="project" name="spring-data-redis-2.2.4.RELEASE" />
+          <element id="library" level="project" name="aspectjrt-1.9.5" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

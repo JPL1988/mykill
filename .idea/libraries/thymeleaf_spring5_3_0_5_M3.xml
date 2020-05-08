@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="thymeleaf-spring5-3.0.5.M3">
+    <CLASSES>
+      <root url="jar://D:/学习/API和jar包，不能删除/常用jar包/thymeleaf-3.0.5.RELEASE-dist/thymeleaf-3.0.5.RELEASE/dist/thymeleaf-spring5-3.0.5.M3.jar!/" />
+      <root url="jar://D:/学习/API和jar包，不能删除/常用jar包/thymeleaf-3.0.5.RELEASE-dist/thymeleaf-3.0.5.RELEASE/dist/thymeleaf-3.0.5.RELEASE.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
